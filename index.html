@@ -24,8 +24,6 @@ overflow:hidden;
 font-family:'Cairo',sans-serif;
 }
 
-/* Background Motion */
-
 body::before{
 content:'';
 position:fixed;
@@ -39,15 +37,9 @@ z-index:0;
 }
 
 @keyframes bgMove{
-from{
-transform:scale(1) translateY(0);
+from{ transform:scale(1) translateY(0); }
+to{ transform:scale(1.08) translateY(-25px); }
 }
-to{
-transform:scale(1.08) translateY(-25px);
-}
-}
-
-/* Scene */
 
 .scene{
 position:fixed;
@@ -72,8 +64,6 @@ pointer-events:all;
 transform:scale(1);
 }
 
-/* Shared */
-
 .gold-bar{
 position:absolute;
 left:0;
@@ -83,13 +73,8 @@ background:#C9A84C;
 box-shadow:0 0 12px rgba(201,168,76,.5);
 }
 
-.gold-bar.top{
-top:0;
-}
-
-.gold-bar.bot{
-bottom:0;
-}
+.gold-bar.top{ top:0; }
+.gold-bar.bot{ bottom:0; }
 
 .gem{
 width:8px;
@@ -109,11 +94,9 @@ background:linear-gradient(90deg,transparent,#C9A84C);
 background:linear-gradient(90deg,#C9A84C,transparent);
 }
 
-/* Scene 1 */
+/* ===== Scene 1 ===== */
 
-#s1{
-background:#000;
-}
+#s1{ background:#000; }
 
 .s1-badge{
 font-family:'Cinzel',serif;
@@ -127,17 +110,17 @@ opacity:0;
 transition:opacity .8s ease .2s;
 }
 
-.s1-badge.show{
-opacity:1;
-}
+.s1-badge.show{ opacity:1; }
 
+/* FIX 1: name on one line — nowrap + fluid font size */
 .s1-name{
 font-family:'Cinzel',serif;
-font-size:clamp(24px,5vw,42px);
+font-size:clamp(16px,3.8vw,42px);
 font-weight:900;
 color:#C9A84C;
 letter-spacing:4px;
 text-align:center;
+white-space:nowrap;          /* keep on single line */
 opacity:0;
 transform:scale(.88);
 transition:all 1.2s cubic-bezier(.22,1,.36,1);
@@ -160,9 +143,7 @@ opacity:0;
 transition:all .8s ease;
 }
 
-.s1-div.show{
-opacity:1;
-}
+.s1-div.show{ opacity:1; }
 
 .s1-nexus{
 font-family:'Cinzel',serif;
@@ -171,13 +152,13 @@ letter-spacing:8px;
 color:#C9A84C55;
 opacity:0;
 transition:all .8s ease;
+text-align:center;
+width:100%;
 }
 
-.s1-nexus.show{
-opacity:1;
-}
+.s1-nexus.show{ opacity:1; }
 
-/* Scene 2 */
+/* ===== Scene 2 ===== */
 
 #s2{
 background:#000;
@@ -192,13 +173,8 @@ height:1px;
 background:linear-gradient(90deg,transparent,#C9A84C,transparent);
 }
 
-.s2-frame-h.top{
-top:40px;
-}
-
-.s2-frame-h.bot{
-bottom:40px;
-}
+.s2-frame-h.top{ top:40px; }
+.s2-frame-h.bot{ bottom:40px; }
 
 .s2-frame-v{
 position:absolute;
@@ -208,13 +184,8 @@ width:1px;
 background:linear-gradient(180deg,transparent,#C9A84C,transparent);
 }
 
-.s2-frame-v.left{
-left:40px;
-}
-
-.s2-frame-v.right{
-right:40px;
-}
+.s2-frame-v.left{ left:40px; }
+.s2-frame-v.right{ right:40px; }
 
 .s2-line1,
 .s2-line2{
@@ -254,11 +225,9 @@ opacity:0;
 transition:all .8s ease 1.2s;
 }
 
-.s2-sub.show{
-opacity:1;
-}
+.s2-sub.show{ opacity:1; }
 
-/* Scene 3 */
+/* ===== Scene 3 ===== */
 
 #s3{
 background:#000;
@@ -276,13 +245,10 @@ text-align:center;
 margin-bottom:28px;
 opacity:0;
 transition:opacity .6s ease;
-text-shadow:
-0 0 10px rgba(201,168,76,.25);
+text-shadow:0 0 10px rgba(201,168,76,.25);
 }
 
-.s3-header.show{
-opacity:1;
-}
+.s3-header.show{ opacity:1; }
 
 .s3-grid{
 display:grid;
@@ -316,14 +282,35 @@ color:#C9A84C66;
 font-weight:700;
 }
 
+/* FIX 2: English + Arabic side by side */
 .s3-txt{
-font-size:clamp(12px,3vw,15px);
+display:flex;
+align-items:center;
+gap:8px;
+font-size:clamp(11px,2.8vw,14px);
 font-weight:700;
 color:#ddd;
 margin-top:3px;
+flex-wrap:nowrap;
 }
 
-/* Scene 4 */
+.s3-txt-en{
+color:#ddd;
+}
+
+.s3-txt-sep{
+color:#C9A84C55;
+font-size:10px;
+}
+
+.s3-txt-ar{
+color:#fff;
+font-family:'Cairo',sans-serif;
+font-weight:400;
+font-size:clamp(11px,2.8vw,14px);
+}
+
+/* ===== Scene 4 ===== */
 
 #s4{
 background:#000;
@@ -386,8 +373,6 @@ margin-top:8px;
 line-height:1.7;
 }
 
-/* CTA */
-
 .s3-cta{
 text-align:center;
 opacity:0;
@@ -412,12 +397,8 @@ animation:pulse 2s infinite;
 }
 
 @keyframes pulse{
-0%,100%{
-transform:scale(1);
-}
-50%{
-transform:scale(1.04);
-}
+0%,100%{ transform:scale(1); }
+50%{ transform:scale(1.04); }
 }
 
 .s3-link{
@@ -435,8 +416,6 @@ transition:.3s;
 color:#C9A84C;
 transform:scale(1.05);
 }
-
-/* Replay */
 
 #replay{
 position:fixed;
@@ -458,19 +437,8 @@ border-radius:40px;
 box-shadow:0 10px 30px rgba(201,168,76,.25);
 }
 
-/* Mobile */
-
 @media(max-width:480px){
-
-.s3-grid{
-grid-template-columns:1fr;
-}
-
-.s1-name{
-line-height:1.4;
-padding:0 10px;
-}
-
+.s3-grid{ grid-template-columns:1fr; }
 }
 
 </style>
@@ -479,242 +447,249 @@ padding:0 10px;
 <body>
 
 <!-- Scene 1 -->
-
 <div class="scene" id="s1">
+  <div class="gold-bar top"></div>
 
-<div class="gold-bar top"></div>
+  <div class="s1-badge" id="s1badge">NEXUS ACADEMY</div>
 
-<div class="s1-badge" id="s1badge">
-NEXUS ACADEMY
-</div>
+  <!-- FIX 1: white-space:nowrap on .s1-name keeps it on one line -->
+  <div class="s1-name" id="s1name">HR ✦ ISLAM EL-HAKIM</div>
 
-<div class="s1-name" id="s1name">
-HR ✦ ISLAM EL-HAKIM
-</div>
+  <div class="s1-div" id="s1div">
+    <div class="dl"></div>
+    <div class="gem"></div>
+    <div class="dl r"></div>
+  </div>
 
-<div class="s1-div" id="s1div">
-<div class="dl"></div>
-<div class="gem"></div>
-<div class="dl r"></div>
-</div>
+  <div class="s1-nexus" id="s1nexus">HUMAN RESOURCES PRACTICAL WORKSHOP</div>
 
-<div class="s1-nexus" id="s1nexus">
-HUMAN RESOURCES PRACTICAL WORKSHOP
-</div>
-
-<div class="gold-bar bot"></div>
-
+  <div class="gold-bar bot"></div>
 </div>
 
 <!-- Scene 2 -->
-
 <div class="scene" id="s2">
+  <div class="s2-frame-h top"></div>
+  <div class="s2-frame-h bot"></div>
+  <div class="s2-frame-v left"></div>
+  <div class="s2-frame-v right"></div>
 
-<div class="s2-frame-h top"></div>
-<div class="s2-frame-h bot"></div>
+  <div class="gem" style="position:absolute;top:36px;left:36px;"></div>
+  <div class="gem" style="position:absolute;top:36px;right:36px;"></div>
+  <div class="gem" style="position:absolute;bottom:36px;left:36px;"></div>
+  <div class="gem" style="position:absolute;bottom:36px;right:36px;"></div>
 
-<div class="s2-frame-v left"></div>
-<div class="s2-frame-v right"></div>
-
-<div class="gem" style="position:absolute;top:36px;left:36px;"></div>
-<div class="gem" style="position:absolute;top:36px;right:36px;"></div>
-<div class="gem" style="position:absolute;bottom:36px;left:36px;"></div>
-<div class="gem" style="position:absolute;bottom:36px;right:36px;"></div>
-
-<div class="s2-line1" id="s2l1">
-Human Resources
-</div>
-
-<div class="s2-line2" id="s2l2">
-Practical Workshop
-</div>
-
-<div class="s2-sub" id="s2sub">
-الكورس اللي هيخليك جاهز للشغل الحقيقي
-</div>
-
+  <div class="s2-line1" id="s2l1">Human Resources</div>
+  <div class="s2-line2" id="s2l2">Practical Workshop</div>
+  <div class="s2-sub" id="s2sub">الكورس اللي هيخليك جاهز للشغل الحقيقي</div>
 </div>
 
 <!-- Scene 3 -->
-
 <div class="scene" id="s3">
+  <div class="s3-header" id="s3h">هنتعلم إيه ؟</div>
 
-<div class="s3-header" id="s3h">
-WHAT YOU WILL LEARN
-</div>
+  <div class="s3-grid">
 
-<div class="s3-grid">
+    <!-- FIX 2: Each item has English + separator + Arabic -->
+    <div class="s3-item">
+      <div class="s3-num">01</div>
+      <div class="s3-txt">
+        <span class="s3-txt-en">Recruitment</span>
+        <span class="s3-txt-sep">|</span>
+        <span class="s3-txt-ar">التوظيف</span>
+      </div>
+    </div>
 
-<div class="s3-item"><div class="s3-num">01</div><div class="s3-txt">Recruitment</div></div>
+    <div class="s3-item">
+      <div class="s3-num">02</div>
+      <div class="s3-txt">
+        <span class="s3-txt-en">Personnel</span>
+        <span class="s3-txt-sep">|</span>
+        <span class="s3-txt-ar">شئون العاملين</span>
+      </div>
+    </div>
 
-<div class="s3-item"><div class="s3-num">02</div><div class="s3-txt">Personnel</div></div>
+    <div class="s3-item">
+      <div class="s3-num">03</div>
+      <div class="s3-txt">
+        <span class="s3-txt-en">Payroll</span>
+        <span class="s3-txt-sep">|</span>
+        <span class="s3-txt-ar">المرتبات</span>
+      </div>
+    </div>
 
-<div class="s3-item"><div class="s3-num">03</div><div class="s3-txt">Payroll</div></div>
+    <div class="s3-item">
+      <div class="s3-num">04</div>
+      <div class="s3-txt">
+        <span class="s3-txt-en">Org. Development</span>
+        <span class="s3-txt-sep">|</span>
+        <span class="s3-txt-ar">التطوير التنظيمي</span>
+      </div>
+    </div>
 
-<div class="s3-item"><div class="s3-num">04</div><div class="s3-txt">Org. Development</div></div>
+    <div class="s3-item">
+      <div class="s3-num">05</div>
+      <div class="s3-txt">
+        <span class="s3-txt-en">Legal Files</span>
+        <span class="s3-txt-sep">|</span>
+        <span class="s3-txt-ar">الملفات القانونية</span>
+      </div>
+    </div>
 
-<div class="s3-item"><div class="s3-num">05</div><div class="s3-txt">Legal Files</div></div>
+    <div class="s3-item">
+      <div class="s3-num">06</div>
+      <div class="s3-txt">
+        <span class="s3-txt-en">Attendance & Leaves</span>
+        <span class="s3-txt-sep">|</span>
+        <span class="s3-txt-ar">الحضور والإجازات</span>
+      </div>
+    </div>
 
-<div class="s3-item"><div class="s3-num">06</div><div class="s3-txt">Attendance & Leaves</div></div>
+    <div class="s3-item">
+      <div class="s3-num">07</div>
+      <div class="s3-txt">
+        <span class="s3-txt-en">Performance Appraisal</span>
+        <span class="s3-txt-sep">|</span>
+        <span class="s3-txt-ar">تقييم الأداء</span>
+      </div>
+    </div>
 
-<div class="s3-item"><div class="s3-num">07</div><div class="s3-txt">Performance Appraisal</div></div>
+    <div class="s3-item">
+      <div class="s3-num">08</div>
+      <div class="s3-txt">
+        <span class="s3-txt-en">Contracts & Penalties</span>
+        <span class="s3-txt-sep">|</span>
+        <span class="s3-txt-ar">العقود والجزاءات</span>
+      </div>
+    </div>
 
-<div class="s3-item"><div class="s3-num">08</div><div class="s3-txt">Contracts & Penalties</div></div>
+    <div class="s3-item">
+      <div class="s3-num">09</div>
+      <div class="s3-txt">
+        <span class="s3-txt-en">HR Sheets</span>
+        <span class="s3-txt-sep">|</span>
+        <span class="s3-txt-ar">شيتات HR</span>
+      </div>
+    </div>
 
-<div class="s3-item"><div class="s3-num">09</div><div class="s3-txt">HR Sheets</div></div>
+    <div class="s3-item">
+      <div class="s3-num">10</div>
+      <div class="s3-txt">
+        <span class="s3-txt-en">AI Tools in HR</span>
+        <span class="s3-txt-sep">|</span>
+        <span class="s3-txt-ar">أدوات الذكاء الاصطناعي</span>
+      </div>
+    </div>
 
-<div class="s3-item"><div class="s3-num">10</div><div class="s3-txt">AI Tools in HR</div></div>
-
-</div>
-
+  </div>
 </div>
 
 <!-- Scene 4 -->
-
 <div class="scene" id="s4">
+  <div class="s4-title" id="s4title">WORKSHOP DETAILS</div>
 
-<div class="s4-title" id="s4title">
-COURSE DETAILS
+  <div class="s4-box" id="s4b1">
+    <div class="s4-label">Location</div>
+    <div class="s4-value">الدقي — القاهرة</div>
+    <div class="s4-small">Practical Training + Networking + Real HR Experience</div>
+  </div>
+
+  <div class="s4-box" id="s4b2">
+    <div class="s4-label">Schedule</div>
+    <div class="s4-value">Friday & Saturday</div>
+    <div class="s4-small">مدة المحاضرة من ساعتين لساعتين و نصف</div>
+  </div>
+
+  <div class="s4-box" id="s4b3">
+    <div class="s4-label">Seats</div>
+    <div class="s4-value">Limited Seats Available</div>
+    <div class="s4-small">ابدأ رحلتك في الإتش أر بشكل احترافي</div>
+  </div>
+
+  <div class="s3-cta" id="s3cta">
+    <div class="s3-btn">✦ Register Now ✦</div>
+    <a class="s3-link" href="https://wa.me/201120422281" target="_blank">
+      WhatsApp Registration ↗
+    </a>
+  </div>
 </div>
 
-<div class="s4-box" id="s4b1">
-<div class="s4-label">Location</div>
-<div class="s4-value">الدقي — القاهرة</div>
-<div class="s4-small">Practical Training + Networking + Real HR Experience</div>
-</div>
-
-<div class="s4-box" id="s4b2">
-<div class="s4-label">Schedule</div>
-<div class="s4-value">Friday & Saturday</div>
-<div class="s4-small">مدة المحاضرة من ساعتين لساعتين و نصف</div>
-</div>
-
-<div class="s4-box" id="s4b3">
-<div class="s4-label">Seats</div>
-<div class="s4-value">Limited Seats Available</div>
-<div class="s4-small"> ابدأ رحلتك في الإتش أر بشكل احترافي</div>
-</div>
-
-<div class="s3-cta" id="s3cta">
-
-<div class="s3-btn">
-✦ Register Now ✦
-</div>
-
-<a class="s3-link"
-href="https://wa.me/201120422281"
-target="_blank">
-
-WhatsApp Registration ↗
-
-</a>
-
-</div>
-
-</div>
-
-<button id="replay" onclick="startVideo()">
-↺ إعادة
-</button>
+<button id="replay" onclick="startVideo()">↺ إعادة</button>
 
 <script>
 
 function show(id){
-var el=document.getElementById(id);
-if(el) el.classList.add('show');
+  var el=document.getElementById(id);
+  if(el) el.classList.add('show');
 }
 
 function startVideo(){
 
-document.getElementById('replay').style.display='none';
+  document.getElementById('replay').style.display='none';
 
-['s1','s2','s3','s4'].forEach(function(id){
-document.getElementById(id).classList.remove('active');
-});
+  ['s1','s2','s3','s4'].forEach(function(id){
+    document.getElementById(id).classList.remove('active');
+  });
 
-document.querySelectorAll('.show').forEach(function(el){
-el.classList.remove('show');
-});
+  document.querySelectorAll('.show').forEach(function(el){
+    el.classList.remove('show');
+  });
 
-document.querySelectorAll('.s3-item').forEach(function(el){
-el.classList.remove('show');
-});
+  document.querySelectorAll('.s3-item').forEach(function(el){
+    el.classList.remove('show');
+  });
 
-/* Scene 1 */
+  /* Scene 1 */
+  setTimeout(function(){
+    document.getElementById('s1').classList.add('active');
+    setTimeout(()=>show('s1badge'),300);
+    setTimeout(()=>show('s1name'),900);
+    setTimeout(()=>show('s1div'),1500);
+    setTimeout(()=>show('s1nexus'),1900);
+  },100);
 
-setTimeout(function(){
+  /* Scene 2 */
+  setTimeout(function(){
+    document.getElementById('s1').classList.remove('active');
+    document.getElementById('s2').classList.add('active');
+    setTimeout(()=>show('s2l1'),400);
+    setTimeout(()=>show('s2l2'),1000);
+    setTimeout(()=>show('s2sub'),1800);
+  },6000);
 
-document.getElementById('s1').classList.add('active');
+  /* Scene 3 */
+  setTimeout(function(){
+    document.getElementById('s2').classList.remove('active');
+    document.getElementById('s3').classList.add('active');
+    show('s3h');
+    var items=document.querySelectorAll('.s3-item');
+    items.forEach(function(el,i){
+      setTimeout(function(){ el.classList.add('show'); },i*350);
+    });
+  },13000);
 
-setTimeout(()=>show('s1badge'),300);
-setTimeout(()=>show('s1name'),900);
-setTimeout(()=>show('s1div'),1500);
-setTimeout(()=>show('s1nexus'),1900);
+  /* Scene 4 */
+  setTimeout(function(){
+    document.getElementById('s3').classList.remove('active');
+    document.getElementById('s4').classList.add('active');
+    setTimeout(()=>show('s4title'),300);
+    setTimeout(()=>show('s4b1'),900);
+    setTimeout(()=>show('s4b2'),1600);
+    setTimeout(()=>show('s4b3'),2300);
+    setTimeout(()=>show('s3cta'),3100);
+  },21000);
 
-},100);
-
-/* Scene 2 */
-
-setTimeout(function(){
-
-document.getElementById('s1').classList.remove('active');
-document.getElementById('s2').classList.add('active');
-
-setTimeout(()=>show('s2l1'),400);
-setTimeout(()=>show('s2l2'),1000);
-setTimeout(()=>show('s2sub'),1800);
-
-},6000);
-
-/* Scene 3 */
-
-setTimeout(function(){
-
-document.getElementById('s2').classList.remove('active');
-document.getElementById('s3').classList.add('active');
-
-show('s3h');
-
-var items=document.querySelectorAll('.s3-item');
-
-items.forEach(function(el,i){
-
-setTimeout(function(){
-el.classList.add('show');
-},i*350);
-
-});
-
-},13000);
-
-/* Scene 4 */
-
-setTimeout(function(){
-
-document.getElementById('s3').classList.remove('active');
-document.getElementById('s4').classList.add('active');
-
-setTimeout(()=>show('s4title'),300);
-setTimeout(()=>show('s4b1'),900);
-setTimeout(()=>show('s4b2'),1600);
-setTimeout(()=>show('s4b3'),2300);
-setTimeout(()=>show('s3cta'),3100);
-
-},21000);
-
-/* Replay */
-
-setTimeout(function(){
-document.getElementById('replay').style.display='block';
-},29000);
-
+  /* Replay */
+  setTimeout(function(){
+    document.getElementById('replay').style.display='block';
+  },29000);
 }
 
 window.addEventListener('load',function(){
-setTimeout(startVideo,700);
+  setTimeout(startVideo,700);
 });
 
 </script>
 
 </body>
 </html>
+    
